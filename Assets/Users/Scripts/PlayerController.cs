@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 BSize;
     private Vector2 BOff;
     public float Speed;
+    
+    [SerializeField] private Rigidbody2D RB;
+    public float jump;
 
 
     void Start()
@@ -26,10 +29,10 @@ public class PlayerController : MonoBehaviour
         PlayerAction(Horizontal, Vertical);
         PlayerMovement(Horizontal, Vertical);
 
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             Crouch(true);
-
         }
         else
         {
@@ -42,9 +45,12 @@ public class PlayerController : MonoBehaviour
             Vector2 Pos = transform.position;
             Pos.x = Pos.x + h*Speed*Time.deltaTime;
             transform.position = Pos;
-            Debug.Log("Move: " + Pos.x);
+            Debug.Log("Move: " + Pos.x); 
 
-    
+            if(v>0)
+            {
+                RB.AddForce(new Vector2 (0f,jump),ForceMode2D.Force);
+            }   
     }
 
     private void PlayerAction(float H, float V)
@@ -74,7 +80,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Crouch(bool Crouch)
+    private void Crouch(bool Crouch)
     {
         animator.SetBool("Crouch", Crouch);
 
