@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BoxCollider2D BCol;
     private Vector2 BSize;
     private Vector2 BOff;
+    public float Speed;
+
 
     void Start()
     {
@@ -19,35 +21,49 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float speed = Input.GetAxisRaw("Horizontal");
+        float Horizontal = Input.GetAxisRaw("Horizontal");
+        float Vertical = Input.GetAxisRaw("Vertical");
+        PlayerAction(Horizontal, Vertical);
+        PlayerMovement(Horizontal, Vertical);
 
-        animator.SetFloat("Speed", Mathf.Abs(speed));
-        Debug.Log("Speed: " + speed);
-        Vector3 scale = transform.localScale;
-
-        float speed2 = Input.GetAxisRaw("Vertical");
-        Debug.Log("Speed2: "+speed2);
-        PlayJumpAnimation(speed2);
-        
-
-        if(speed<0)
-        {
-
-            scale.x = -1 * Mathf.Abs(scale.x);  
-        } else if(speed>0)
-        {
-            scale.x = Mathf.Abs(scale.x);
-        }
-        transform.localScale = scale; 
-
-        if(Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             Crouch(true);
 
         }
-        else{
+        else
+        {
             Crouch(false);
         }
+    }
+
+    public void PlayerMovement(float h, float v)
+    {
+            Vector2 Pos = transform.position;
+            Pos.x = Pos.x + h*Speed*Time.deltaTime;
+            transform.position = Pos;
+            Debug.Log("Move: " + Pos.x);
+
+    
+    }
+
+    private void PlayerAction(float H, float V)
+    {
+        animator.SetFloat("Speed", Mathf.Abs(H));
+        Debug.Log("Speed: " + H);
+        Vector3 scale = transform.localScale;
+
+        if (H < 0)
+        {
+            scale.x = -1 * Mathf.Abs(scale.x);
+        }
+        else if (H > 0)
+        {
+            scale.x = Mathf.Abs(scale.x);
+        }
+        transform.localScale = scale;
+        Debug.Log("Speed2: " + V);
+        PlayJumpAnimation(V);
     }
 
     public void PlayJumpAnimation(float VerticalInput)
@@ -72,7 +88,6 @@ public class PlayerController : MonoBehaviour
             BCol.size = new Vector2(sizex, sizey);
             BCol.offset = new Vector2(offx, offy);
         }
-
         else{
         BCol.size = BSize;
         BCol.offset = BOff;
