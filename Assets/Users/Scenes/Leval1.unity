@@ -340,7 +340,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.024, y: -0.496, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 10.45, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -422,7 +422,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1199011813 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4631617940877584895, guid: e1e20500ccfce444e99a5b8399bf7ce8,
@@ -443,6 +443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1199011813}
   BCol: {fileID: 1199011811}
+  Speed: 1
+  RB: {fileID: 1199011812}
+  jump: 5
 --- !u!1001 &8493045044477966779
 PrefabInstance:
   m_ObjectHideFlags: 0
