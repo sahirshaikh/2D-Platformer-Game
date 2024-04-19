@@ -6,25 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
-    public Animator EnemyAnimator;
-    public Animator PlayerAnimator;
+
+    // public Animator PlayerAnimator;
+
+    public PlayerLifeController Life;
 
 
     private void OnCollisionEnter2D(Collision2D other) {
     if(other.gameObject.GetComponent<PlayerController>() != null)
 
         {
-            Debug.Log("Enemy Killed Player");
-            PlayerAnimator.SetTrigger("Death");
-            Invoke("ReloadGame",2f);
+            Debug.Log("Enemy Attack Player...!");
+            Life.LifeDecrement();
 
+
+
+            
 
 
         }  
     }
-    private void ReloadGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+
 
 }
