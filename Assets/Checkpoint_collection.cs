@@ -15,8 +15,13 @@ public class Checkpoint_collection : MonoBehaviour
             keyanimator.SetTrigger("FadeOut");
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
             playerController.Pickupkey();
-            Destroy(gameObject);
+            Invoke("DestroyKey",1.5f);
 
         }   
+    }
+
+    private void DestroyKey()
+    {
+        Destroy(gameObject);
     }
 }
