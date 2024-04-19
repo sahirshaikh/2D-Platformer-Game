@@ -11,6 +11,7 @@ public class PlayerLifeController : MonoBehaviour
     private TextMeshProUGUI LifeUI;
     public Animator PlayerAnimator;
     public GameObject PlayerPos;
+    public GameObject GameOverCanvas;
       
       public int Life;
     private void Awake() {
@@ -36,9 +37,7 @@ public class PlayerLifeController : MonoBehaviour
             Life -= 1;
             RefreshUI();
             PlayerAnimator.SetTrigger("Death");
-
-            Invoke("ReloadGame",2f);
-
+            Invoke("GameOverCanvasactive",2f);          
         }
 
         }
@@ -47,9 +46,11 @@ public class PlayerLifeController : MonoBehaviour
         LifeUI.text = "Life : " + Life;
     }
 
-    private void ReloadGame()
+
+
+        private void GameOverCanvasactive()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameOverCanvas.SetActive(true);
     }
 
 }
