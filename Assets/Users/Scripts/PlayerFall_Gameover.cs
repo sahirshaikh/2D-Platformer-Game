@@ -9,20 +9,24 @@ public class PlayerFall_Gameover : MonoBehaviour
 {
 
     public Animator animator;
+    public GameObject GameOverCanvas;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.GetComponent<PlayerController>() != null)
 
         {
             Debug.Log("Player Fall... Game Over...!!");
             animator.SetTrigger("Death");
-            Invoke("ReloadGame",2f);
+
+
+            Invoke("GameOverCanvasactive",1.5f);
 
 
 
         }  
     }
-    private void ReloadGame()
+    private void GameOverCanvasactive()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameOverCanvas.SetActive(true);
     }
+
 }
