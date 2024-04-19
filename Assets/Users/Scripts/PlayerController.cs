@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public ScoreController SC;
 
 
+
     void Start()
     {
         BSize = BCol.size;
