@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 BOff;
     public float Speed;
     
-    [SerializeField] private Rigidbody2D RB;
+    private Rigidbody2D RB;
     public float jump;
 
 
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         BSize = BCol.size;
         BOff = BCol.offset;
+        RB = this.gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
