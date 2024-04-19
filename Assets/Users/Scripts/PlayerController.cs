@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody2D RB;
     public float jump;
+    public ScoreController SC;
 
 
     void Start()
@@ -99,5 +101,11 @@ public class PlayerController : MonoBehaviour
         BCol.size = BSize;
         BCol.offset = BOff;
         }
+    }
+
+    internal void Pickupkey()
+    {
+        Debug.Log("Key PickUp Successfully");
+        SC.Scoreincrement(10);
     }
 }
