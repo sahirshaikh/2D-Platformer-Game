@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             Vector2 Pos = transform.position;
             Pos.x = Pos.x + h*Speed*Time.deltaTime;
             transform.position = Pos;
-            Debug.Log("Move: " + Pos.x); 
+            // Debug.Log("Move: " + Pos.x); 
 
             if(v>0)
             {
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerAction(float H, float V)
     {
         animator.SetFloat("Speed", Mathf.Abs(H));
-        Debug.Log("Speed: " + H);
+        // Debug.Log("Speed: " + H);
         Vector3 scale = transform.localScale;
 
         if (H < 0)
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             scale.x = Mathf.Abs(scale.x);
         }
         transform.localScale = scale;
-        Debug.Log("Speed2: " + V);
+        // Debug.Log("Speed2: " + V);
         PlayJumpAnimation(V);
     }
 
