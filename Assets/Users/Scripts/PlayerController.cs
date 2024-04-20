@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D RB;
     public float jump;
     public ScoreController SC;
+    public GameObject PauseUI;
 
 
 
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             Crouch(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPause();
         }
     }
 
@@ -109,4 +114,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Key PickUp Successfully");
         SC.Scoreincrement(10);
     }
+
+public void OnResume()
+{
+    PauseUI.SetActive(false);    
+}
+ public void OnPause()
+ {
+    PauseUI.SetActive(true);
+ }
 }

@@ -7,13 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Gamercontroller : MonoBehaviour
 {
-    public void PlayGame()
-    {
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-
-    }
-
+    
     public void QuitGame()
 {
     Application.Quit();
@@ -23,5 +17,18 @@ public void ReloadGame()
 {
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 }
+
+public void NextLevelGame()
+{
+    int SCno = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(SCno+1);
+}
+
+public void LobbyLoading()
+{
+    SceneManager.LoadScene(0);
+}
+
+
 
 }
