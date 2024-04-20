@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class EnemyController : MonoBehaviour
 {
 
-    // public Animator PlayerAnimator;
 
     public PlayerLifeController Life;
 
@@ -18,11 +17,6 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Enemy Attack Player...!");
             Life.LifeDecrement();
-
-
-
-            
-
 
         }  
     }

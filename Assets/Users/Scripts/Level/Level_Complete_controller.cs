@@ -11,6 +11,7 @@ public GameObject LevelCompleteUI;
 
         {
             Debug.Log("Level Completed....!!");
+            LevelManager.Instance.SetCurrentLevelComplete();
             LevelCompleteUI.SetActive(true);
         }  
 
