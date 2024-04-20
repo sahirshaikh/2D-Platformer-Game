@@ -37,7 +37,7 @@ public class PlayerLifeController : MonoBehaviour
             Life -= 1;
             RefreshUI();
             PlayerAnimator.SetTrigger("Death");
-            Invoke("GameOverCanvasactive",2f);          
+            Invoke("GameOverCanvasactive",1.5f);          
         }
 
         }
