@@ -9,11 +9,11 @@ using UnityEngine.UIElements;
 public class PlayerLifeController : MonoBehaviour
 {
     private TextMeshProUGUI LifeUI;
-    public Animator PlayerAnimator;
-    public GameObject PlayerPos;
-    public GameObject GameOverCanvas;
+    [SerializeField] private Animator PlayerAnimator;
+    [SerializeField] private GameObject PlayerPos;
+    [SerializeField] private GameObject GameOverCanvas;
       
-      public int Life;
+    [SerializeField] private int Life;
     private void Awake() {
         LifeUI = GetComponent<TextMeshProUGUI>();
     }

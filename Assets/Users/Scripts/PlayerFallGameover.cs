@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerFall_Gameover : MonoBehaviour
 {
 
-    public Animator animator;
-    public GameObject GameOverCanvas;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject GameOverCanvas;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.GetComponent<PlayerController>() != null)
 

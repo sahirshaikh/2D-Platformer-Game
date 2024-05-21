@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class StartUIController : MonoBehaviour
 {
-    public GameObject LevelSelectionUI;
-    public GameObject StartUpUI;
+    [SerializeField] private GameObject LevelSelectionUI;
+    [SerializeField] private GameObject StartUpUI;
 
     public void PlayGame()
     {
+        SoundManager.Instance.Play(SoundManager.Sounds.ButtonClick);
         LevelSelectionUI.SetActive(true);
         StartUpUI.SetActive(false);
-
-
-
     }
 }

@@ -8,18 +8,21 @@ public class EnemyController : MonoBehaviour
 {
 
 
-    public PlayerLifeController Life;
+    [SerializeField] private PlayerLifeController Life;
+    void Start()
+    {
 
+    }
 
+    void Update()
+    {
+
+    }
     private void OnCollisionEnter2D(Collision2D other) {
     if(other.gameObject.GetComponent<PlayerController>() != null)
-
         {
             Debug.Log("Enemy Attack Player...!");
             Life.LifeDecrement();
-
         }  
     }
-
-
 }

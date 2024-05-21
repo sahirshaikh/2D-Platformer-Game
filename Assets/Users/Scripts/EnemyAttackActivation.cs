@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackActivation : MonoBehaviour
 {
-    public Animator Enemyanimator;
+    [SerializeField] private Animator Enemyanimator;
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.GetComponent<PlayerController>() != null)
 

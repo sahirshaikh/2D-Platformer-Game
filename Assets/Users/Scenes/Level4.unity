@@ -192,7 +192,6 @@ GameObject:
   m_Component:
   - component: {fileID: 262388753}
   - component: {fileID: 262388752}
-  - component: {fileID: 262388751}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -200,14 +199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &262388751
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262388750}
-  m_Enabled: 1
 --- !u!20 &262388752
 Camera:
   m_ObjectHideFlags: 0
@@ -1962,7 +1953,7 @@ GameObject:
   - component: {fileID: 921312941}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3227,9 +3218,10 @@ MonoBehaviour:
   animator: {fileID: 1199011813}
   BCol: {fileID: 1199011811}
   Speed: 2
-  jump: 5
+  jump: 8
   SC: {fileID: 88176651526672642}
   PauseUI: {fileID: 1891548684}
+  IsGrounded: 0
 --- !u!4 &1199011818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5444848827109103618, guid: e1e20500ccfce444e99a5b8399bf7ce8,
